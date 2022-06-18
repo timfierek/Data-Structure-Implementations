@@ -10,6 +10,17 @@ public class SinglyLinkedList<E> {
 			next = null;
 		}
 		
+		public Object getData() {
+			return data;
+		}
+		
+		public void setData(E data) {
+			this.data = data;
+		}
+		
+		public Node next() {
+			return this.next;
+		}
 	}
 	
 	private Node head;
@@ -39,62 +50,20 @@ public class SinglyLinkedList<E> {
 		return true;
 	}
 	
-	public E get(int index){
-		if(index > (size - 1)) {
-			return null;
-		}
+	public E get(E data){
 		
-		Node pointer = head;
-		for(int i = 0; i < index; i++) {
-			pointer = pointer.next;
-		}
-		
-		return pointer.data;
 	}
 	
 	public boolean contains(E data) {
-		Node cur = head;
-		do{
-			if(cur.data == data) {
-				return true;
-			}
-			else {
-				cur = cur.next;
-			}
-		} while(cur.next != null); 
-		
 		return false;
 	}
 	
-	public int indexOf(E data) {
-		Node cur = head;
-		
-		for(int i = 0; cur.next != null; i++) {
-			if(cur.data == data) {
-				return i;
-			}
-		}
-		
-		return -1;
-	}
-	
 	public boolean isEmpty() {
-		return size == 0;
+		return false;
 	}
 	
-	//TODO: finish method
 	public boolean remove(E data) {
-		int index = indexOf(data);
-		if(index == -1) {
-			return false;
-		}
-		
-		Node cur = head;
-		for(int i = 0; i < index; i++) {
-			cur = cur.next;
-		}
-		
-		return true;
+		return false;
 	}
 	
 	public int getSize() {
