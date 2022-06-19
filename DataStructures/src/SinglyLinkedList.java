@@ -82,17 +82,17 @@ public class SinglyLinkedList<E> {
 		return size == 0;
 	}
 	
-	//TODO: finish method
-	public boolean remove(E data) {
-		int index = indexOf(data);
+	public boolean remove(int ind) {
+		int index = indexOf(get(ind));
 		if(index == -1) {
 			return false;
 		}
 		
 		Node cur = head;
-		for(int i = 0; i < index; i++) {
+		for(int i = 0; i < index - 1; i++) {
 			cur = cur.next;
 		}
+		cur.next = cur.next.next;
 		
 		return true;
 	}
@@ -102,7 +102,14 @@ public class SinglyLinkedList<E> {
 	}
 	
 	public String toString() {
-		return "";
+		String result = ("SinglyLinkedList[" + head.data);
+		Node cur = head;
+		while(head.next != null) {
+			result += (", " + cur.data);
+			cur = cur.next;
+		}
+		
+		return result;
 	}
 	
 }
