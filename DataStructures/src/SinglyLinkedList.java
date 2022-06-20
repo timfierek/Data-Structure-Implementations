@@ -39,8 +39,8 @@ public class SinglyLinkedList<E> {
 		return true;
 	}
 	
-	public E get(int index){
-		if(index > (size - 1)) {
+	public E get(int index) {
+		if(index > (size - 1) || index < 0) {
 			return null;
 		}
 		
@@ -53,7 +53,12 @@ public class SinglyLinkedList<E> {
 	}
 	
 	public boolean contains(E data) {
+		if(size == 0) {
+			return false;
+		}
+		
 		Node cur = head;
+				
 		do{
 			if(cur.data == data) {
 				return true;
@@ -63,16 +68,28 @@ public class SinglyLinkedList<E> {
 			}
 		} while(cur.next != null); 
 		
+		if(cur.data == data) {
+			return true;
+		}
+		
 		return false;
 	}
 	
 	public int indexOf(E data) {
 		Node cur = head;
+		if(size == 0) {
+			return -1;
+		}
 		
 		for(int i = 0; cur.next != null; i++) {
 			if(cur.data == data) {
 				return i;
 			}
+			cur = cur.next;
+		}
+		
+		if(cur.data == data) {
+			return (size - 1);
 		}
 		
 		return -1;

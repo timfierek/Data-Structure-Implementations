@@ -1,6 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Rule;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 
 class SinglyLinkedListTest {
 
@@ -65,7 +67,7 @@ class SinglyLinkedListTest {
 		testList.add("node1");
 		testList.add("node2");
 		testList.add("node3");
-		String expected = "node2";
+		String expected = "node1";
 		String actual = testList.get(0);
 		
 		assertEquals(expected, actual);
@@ -78,22 +80,23 @@ class SinglyLinkedListTest {
 		testList.add("node1");
 		testList.add("node2");
 		testList.add("node3");
+		
 		String expected = null;
 		String actual = testList.get(4);
-		
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	void testGet4() {
+		
 		SinglyLinkedList<String> testList = new SinglyLinkedList<>();
 		
 		testList.add("node1");
 		testList.add("node2");
 		testList.add("node3");
+		
 		String expected = null;
 		String actual = testList.get(-1);
-		
 		assertEquals(expected, actual);
 	}
 	
@@ -189,7 +192,7 @@ class SinglyLinkedListTest {
 		testList.add("node1");
 		testList.add("node2");
 		testList.add("node3");
-		int expected = 3;
+		int expected = 2;
 		int actual = testList.indexOf("node3");
 		
 		assertEquals(expected, actual);
@@ -212,7 +215,7 @@ class SinglyLinkedListTest {
 	void testIndexOf5() {
 		SinglyLinkedList<String> testList = new SinglyLinkedList<>();
 		
-		int expected = 3;
+		int expected = -1;
 		int actual = testList.indexOf("empty");
 		
 		assertEquals(expected, actual);
