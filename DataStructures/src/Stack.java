@@ -64,8 +64,12 @@ public class Stack<E> {
 	public String toString() {
 		String result = "Stack[";
 		Node cur = top;
+		
 		while(cur != null) {
-			result += (cur.data + ", ");
+			result += (cur.data);
+			if(cur.next != null) {
+				result += ",";
+			}
 			cur = cur.next;
 		}
 		result += "]";
