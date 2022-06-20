@@ -50,7 +50,10 @@ public class Trie {
 		
 		for(int i = 0; i < word.toCharArray().length; i++) {
 			if(i == word.toCharArray().length - 1) {
-				return cur.children.get(word.charAt(i)).isWord;
+				if(cur.children.containsKey(word.charAt(i))) {
+					return cur.children.get(word.charAt(i)).isWord;
+				}
+				return false;
 			}
 			
 			if(cur.children.containsKey(word.charAt(i))) {
@@ -64,6 +67,7 @@ public class Trie {
 		return false;
 	}
 	
+	// TODO: implement deleteWord method
 	public boolean deleteWord(String word) {
 		return false;
 	}
